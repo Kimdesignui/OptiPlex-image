@@ -21,15 +21,15 @@ export const AIEnhancer: React.FC<AIEnhancerProps> = ({ originalFile }) => {
     try {
       let prompt = "";
       if (mode === 'restore') {
-        prompt = "Enhance the quality of this image. Increase sharpness, improve lighting, remove noise, and make it look high resolution and photorealistic. Maintain the original subject matter and composition exactly.";
+        prompt = "Enhance the quality of this image. Increase sharpness, improve lighting, remove noise, and make it look high resolution and photorealistic. Maintain the original subject matter and composition exactly. Return a single high-quality image.";
       } else {
-        prompt = customPrompt || "Make this image look like a high-budget cinematic movie shot. Enhance details and colors significantly.";
+        prompt = customPrompt || "Make this image look like a high-budget cinematic movie shot. Enhance details and colors significantly. Transform the style as described.";
       }
 
       const url = await enhanceImageWithGemini(originalFile, prompt);
       setResultUrl(url);
-    } catch (err) {
-      setError("Có lỗi xảy ra khi xử lý với AI. Vui lòng thử lại.");
+    } catch (err: any) {
+      setError(err.message || "Có lỗi xảy ra khi xử lý với AI. Vui lòng thử lại.");
     } finally {
       setIsProcessing(false);
     }

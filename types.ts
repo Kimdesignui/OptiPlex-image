@@ -6,11 +6,23 @@ export interface ProcessedImage {
   height: number;
 }
 
+export enum Unit {
+  PX = 'px',
+  CM = 'cm',
+  MM = 'mm'
+}
+
+export interface AspectRatio {
+  label: string;
+  value: number | 'free';
+}
+
 export interface CropConfig {
   x: number;
   y: number;
   width: number;
   height: number;
+  unit?: Unit;
 }
 
 export interface ImageSettings {

@@ -1,5 +1,6 @@
 {
   "name": "OptiPlex Image Studio",
   "description": "Ứng dụng tối ưu hóa hình ảnh: Nén dung lượng client-side và Nâng cấp chất lượng bằng AI.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": []
 }
